@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Tomorrow", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  height: 40px;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.navbar--picture {
+  height: 60px;
+  width: 60px;
+  margin-right: 20px;
+}
+
+.navbar--title,
+.navbar--second--title {
+  margin: 0;
+  color: white;
+}
+.navbar--title {
+  margin-right: auto;
+  font-weight: bold;
+}
+.navbar--second--title {
+  font-size: 16px;
+  font-weight: 300;
+}
