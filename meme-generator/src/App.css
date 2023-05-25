@@ -76,3 +76,10 @@ body {
   font-size: 22px;
   border: 2px solid #e8e8e8;
 }
+
+.generated--img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
