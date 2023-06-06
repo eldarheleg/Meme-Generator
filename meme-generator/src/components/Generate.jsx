@@ -1,24 +1,28 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import memesData from "../memesData";
 
 function Generate() {
-  const [meme, setMeme] = React.useState({
+  const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
     randomImage: "https://i.imgflip.com/gk5el.jpg",
   });
 
-  const [allMemeImages, setAllMemeImages] = React.useState(memesData);
+  const [allMemes, setAllMemes] = useState(memesData);
+
+  useEffect(() => {
+   fetch("https://api.imgflip.com/get_memes").then(jsonData => jsonData.json()).then(data => setAllMemes(data.data.memes))
+  },[])
 
   function getRanImg() {
-    const memesArr = allMemeImages.data.memes;
-    const randomNum = Math.floor(Math.random() * memesArr.length);
-    let url = memesArr[randomNum].url;
+    //const memesArr = allMemes.data.memes;
+    const randomNum = Math.floor(Math.random() * allMemes.length);
+    let url = allMemes[randomNum].url;
     setMeme((prevMeme) => ({
       ...prevMeme,
       randomImage: url,
     }));
-    console.log(memesArr[randomNum].url);
+    console.log(allMemes[randomNum].url);
   }
 
   function handleText(event) {
@@ -26,9 +30,9 @@ function Generate() {
     setMeme((prevMeme) => ({
       ...prevMeme,
       [name]: value
-      
     }));
   }
+
   return (
     <main>
       <div className="main">
